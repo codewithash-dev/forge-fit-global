@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Fit Forge Global",
+    "slug": "fitforge-global",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0D0D0D"
+    },
+    "assetBundlePatterns": [
+      "assets/**"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.codewithash.fitforgeglobal"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0D0D0D"
+      },
+      "package": "com.codewithash.fitforgeglobal"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "root": "./app"
+        }
+      ],
+      "expo-font",
+      "expo-asset"
+    ],
+    "scheme": "fitforge-global",
+    "extra": {
+      "supabaseUrl": "https://hpaklkmtizjfbnivuonj.supabase.co",
+      "supabaseAnonKey": "sb_publishable_-cWGNfMgBkGovEyv8mTl9w_hVSgzujb",
+      "eas": {
+        "projectId": "4afc9d03-adb6-4620-a17c-5415eae37ee1"
+      }
+    },
+    "owner": "codewithash-dev",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/4afc9d03-adb6-4620-a17c-5415eae37ee1"
+    }
+  }
+}
