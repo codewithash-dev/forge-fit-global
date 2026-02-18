@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --gray-dark: #374151;
+  --gray-darker: #1f2937;
+  --orange-cta: #ea580c;
+  --orange-cta-hover: #f97316;
+  --red-cta: #b91c1c;
+  --red-cta-hover: #dc2626;
+}
+
+@theme inline {
+  --color-gray-dark: var(--gray-dark);
+  --color-gray-darker: var(--gray-darker);
+  --color-orange-cta: var(--orange-cta);
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #000;
+}
+
+/* Continuous scrolling carousel for reviews (right to left) */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.review-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.review-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll-left 60s linear infinite;
+  width: fit-content;
+}
+
+.review-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.review-carousel-track > * {
+  flex-shrink: 0;
+}
