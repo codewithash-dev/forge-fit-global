@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Slanted 3D text effect with radial glow */
+.layered-text {
+  position: relative;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff; /* white main text */
+  display: inline-block;
+  font-style: italic;
+  transform: skew(-10deg, 0deg); /* Slant to the right */
+  text-shadow: 
+    /* Dark shadow for 3D/embossed effect */
+    3px 3px 0 rgba(0, 0, 0, 0.8),
+    2px 2px 0 rgba(0, 0, 0, 0.9),
+    1px 1px 0 rgba(0, 0, 0, 0.95),
+    /* Additional depth */
+    4px 4px 2px rgba(0, 0, 0, 0.6),
+    /* Subtle white glow */
+    0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Radial glow background behind text */
+.layered-text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 20px 40px;
+}
+
+.layered-text-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 150%;
+  background: radial-gradient(ellipse at center, rgba(180, 83, 9, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.layered-text-subtle {
+  position: relative;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #ffffff; /* white text */
+  display: inline-block;
+  font-style: italic;
+  transform: skew(-10deg, 0deg); /* Slant to the right */
+  text-shadow: 
+    /* Dark shadow for 3D/embossed effect */
+    2px 2px 0 rgba(0, 0, 0, 0.8),
+    1px 1px 0 rgba(0, 0, 0, 0.9),
+    /* Additional depth */
+    3px 3px 2px rgba(0, 0, 0, 0.6),
+    /* Subtle white glow */
+    0 0 3px rgba(255, 255, 255, 0.3);
+  transition: color 0.2s ease;
+}
+
+/* Hover state for text - black text on gold background */
+.group:hover .layered-text-subtle {
+  color: #000000; /* black text */
+  text-shadow: 
+    /* Light shadow for black text on gold */
+    1px 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Smaller radial glow for card titles */
+.layered-text-wrapper-small {
+  position: relative;
+  display: inline-block;
+  padding: 8px 8px 8px 4px; /* Reduced left padding to bring text closer to icon */
+}
+
+.layered-text-wrapper-small::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(180, 83, 9, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* ============================================
+   FITNESS ANIMATIONS
+   ============================================ */
+
+/* 1. Pulse/Heartbeat - Cards pulse on hover */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.02); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.01); }
+}
+
+.card-pulse:hover {
+  animation: heartbeat 0.8s ease-in-out infinite;
+}
+
+/* 2. Breathing effect - Subtle scale in/out */
+@keyframes breathing {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.breathing-text {
+  animation: breathing 3s ease-in-out infinite;
+}
+
+/* 3. Gold glow pulse - Gold borders glow/pulse continuously */
+@keyframes goldGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.5),
+                0 0 10px rgba(245, 158, 11, 0.3),
+                0 0 15px rgba(245, 158, 11, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.8),
+                0 0 20px rgba(245, 158, 11, 0.5),
+                0 0 30px rgba(245, 158, 11, 0.3);
+  }
+}
+
+.gold-glow {
+  animation: goldGlow 2s ease-in-out infinite;
+}
+
+/* 4. Hexagonal ripple - Ripple effect matching background */
+@keyframes hexagonalRipple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.hexagonal-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  border-radius: 20%;
+  transform: translate(-50%, -50%) rotate(30deg);
+  animation: hexagonalRipple 2s ease-out infinite;
+  pointer-events: none;
+}
+
+/* 5. Weight bar animation - Horizontal bars move up/down */
+@keyframes weightLift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.weight-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.weight-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.8), transparent);
+  animation: weightLift 1.5s ease-in-out infinite;
+}
+
+/* 6. Energy waves - Ripple effects from buttons */
+@keyframes energyWave {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.energy-wave {
+  position: relative;
+  overflow: visible;
+}
+
+.energy-wave::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.energy-wave:hover::before {
+  animation: energyWave 0.6s ease-out;
+  width: 200px;
+  height: 200px;
+}
+
+/* 7. Sweat drops - Subtle animated droplets */
+@keyframes sweatDrop {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.sweat-drops {
+  position: relative;
+}
+
+.sweat-drops::before,
+.sweat-drops::after {
+  content: '💧';
+  position: absolute;
+  top: -5px;
+  font-size: 8px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sweat-drops::before {
+  left: 20%;
+  animation: sweatDrop 2s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.sweat-drops::after {
+  left: 80%;
+  animation: sweatDrop 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* 8. Jump/bounce - Cards bounce slightly on hover */
+@keyframes jumpBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.card-bounce:hover {
+  animation: jumpBounce 0.5s ease-in-out;
+}
+
+/* 9. Progress bar fill - Animated progress bar on hover */
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.progress-bar-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.8), rgba(217, 119, 6, 0.8));
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-bar-container:hover .progress-bar {
+  animation: progressFill 0.8s ease-out forwards;
+}
+
+/* 10. Countdown timer - Numbers counting up on load */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.countdown-number {
+  animation: countUp 0.5s ease-out;
+}
+
+/* 11. Muscle flex - Elements expand/contract on hover */
+@keyframes muscleFlex {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.05); }
+}
+
+.muscle-flex:hover {
+  animation: muscleFlex 0.6s ease-in-out;
+}
+
+/* Social Media Icon Animations */
+@keyframes iconRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.social-icon {
+  transition: all 0.3s ease;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.social-icon:hover {
+  animation: iconRotate 0.6s ease-in-out, iconBounce 0.6s ease-in-out;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+}
+
+/* Individual icon delays for staggered effect */
+.social-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.social-icon:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.social-icon:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Mobile-optimized background */
+@media (max-width: 768px) {
+  .mobile-bg {
+    background-attachment: scroll !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+}
+
+/* Ensure background covers full viewport on mobile */
+@media (max-width: 480px) {
+  .mobile-bg {
+    background-size: cover !important;
+    background-position: center top !important;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+}
