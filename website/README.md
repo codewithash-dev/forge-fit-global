@@ -30,6 +30,14 @@ npm start
 - **`/links-forgefitglobal`** – Linktree-style links page (e.g. links.forgefitglobal.com)
 - **Expo app (root)** – Mobile app (FitForge Global)
 
+## Hero video (production)
+
+The hero video is not in the repo (too large). Locally it loads from `public/videos/to-run.mp4` if you add the file there. **On Vercel:**
+
+1. Host the video somewhere (e.g. [Vercel Blob](https://vercel.com/docs/storage/vercel-blob), Cloudinary, or any public URL).
+2. In the Vercel project: **Settings → Environment Variables** → add `NEXT_PUBLIC_HERO_VIDEO_URL` with that URL (e.g. `https://xxx.blob.vercel-storage.com/to-run.mp4`).
+3. Redeploy so the env is picked up. The hero and “To Run” section will use this URL.
+
 ## Customization
 
 - **Copy shared assets**: To use the same logo as the links page, copy `links-forgefitglobal/public/images/logo.png` into `website/public/images/` and use it in the hero (e.g. with `next/image`).

@@ -50,3 +50,51 @@ body {
 .review-carousel-track > * {
   flex-shrink: 0;
 }
+
+/* Our App – immersive section: TWO COLUMNS like iFIT (left: subtitle + headline + grid, right: copy + 10k+ + buttons) */
+.ourapp-immersive-cols {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ourapp-immersive-cols > *:first-child {
+  min-width: 0;
+}
+.ourapp-immersive-cols > *:last-child {
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .ourapp-immersive-cols {
+    display: block;
+  }
+}
+
+/* Our App – 180+ Elite Trainers auto-scrolling carousel (no scrollbar) */
+@keyframes trainer-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.trainer-carousel {
+  overflow: hidden;
+  position: relative;
+}
+.trainer-carousel-track {
+  display: flex;
+  gap: 1rem;
+  animation: trainer-scroll-left 45s linear infinite;
+  width: fit-content;
+}
+.trainer-carousel-track:hover {
+  animation-play-state: paused;
+}
+.trainer-carousel-track > * {
+  flex-shrink: 0;
+}

@@ -5,6 +5,9 @@ import HeroPhoneIFIT from "@/components/HeroPhoneIFIT";
 import FeedbackWidget from "@/components/FeedbackWidget";
 import ChatWidget from "@/components/ChatWidget";
 
+// Video: set NEXT_PUBLIC_HERO_VIDEO_URL in Vercel to a hosted URL; locally uses /videos/to-run.mp4
+const HERO_VIDEO_SRC = process.env.NEXT_PUBLIC_HERO_VIDEO_URL || "/videos/to-run.mp4";
+
 const REVIEWS = [
   { quote: "I have been using ForgeFit for 4 years now. To say ForgeFit changed my life is an understatement.", author: "PS" },
   { quote: "The trainers, types of workouts, length of workouts are all so diverse and interesting. There is literally something for everyone. It will change your life!!!", author: "JMS" },
@@ -32,7 +35,7 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden
         >
-          <source src="/videos/to-run.mp4" type="video/mp4" />
+          <source src={HERO_VIDEO_SRC} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/25" />
         <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -219,7 +222,7 @@ export default function Home() {
             aria-hidden
             poster="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80"
           >
-            <source src="/videos/to-run.mp4" type="video/mp4" />
+            <source src={HERO_VIDEO_SRC} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/25" />
           <div className="absolute inset-0 flex items-end pb-[12%] pl-[8%] md:pl-[10%]">
@@ -230,10 +233,10 @@ export default function Home() {
               </p>
               <Link
                 href="#why"
-                className="inline-flex items-center gap-2 w-fit px-5 py-2.5 rounded-full bg-[#ea580c] text-white text-sm font-semibold hover:bg-[#f97316] transition-colors shadow-lg"
+                className="group inline-flex items-center gap-2 w-fit px-5 py-2.5 rounded-full bg-[#ea580c] text-white text-sm font-semibold hover:bg-[#f97316] transition-colors shadow-lg"
               >
-                Why ForgeFit?
-                <span className="font-bold">&gt;&gt;</span>
+                <span className="order-2 group-hover:order-1 inline-block font-bold transition-all duration-200 group-hover:scale-125" aria-hidden>&gt;&gt;</span>
+                <span className="order-1 group-hover:order-2">Why ForgeFit?</span>
               </Link>
               <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight drop-shadow-lg">
                 INVITES YOU
@@ -336,10 +339,10 @@ export default function Home() {
             <p className="text-xl text-white/90 mb-8">that&apos;s right for you</p>
             <Link
               href="#"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors"
+              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors"
             >
-              Explore Memberships
-              <span>&#62;&#62;</span>
+              <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#62;&#62;</span>
+              <span className="order-1 group-hover:order-2">Explore Memberships</span>
             </Link>
           </div>
           <div className="flex-1 rounded-2xl overflow-hidden min-h-[320px] relative bg-[#374151]">
@@ -374,10 +377,10 @@ export default function Home() {
             href="https://youtube.com/@ForgeFitGlobal"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors"
           >
-            Watch now on Prime Video
-            <span>&#62;&#62;</span>
+            <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#62;&#62;</span>
+            <span className="order-1 group-hover:order-2">Watch now on Prime Video</span>
           </a>
         </div>
       </section>
@@ -389,10 +392,10 @@ export default function Home() {
           <p className="text-zinc-600 text-lg mb-6">Real people. Real progress. Real results.</p>
           <Link
             href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-black bg-white text-black font-medium hover:bg-black/5 transition-colors"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-black bg-white text-black font-medium hover:bg-black/5 transition-colors"
           >
-            See what people are saying
-            <span>&#62;&#62;</span>
+            <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#62;&#62;</span>
+            <span className="order-1 group-hover:order-2">See what people are saying</span>
           </Link>
         </div>
         <div className="review-carousel overflow-hidden">
@@ -450,7 +453,7 @@ export default function Home() {
               <div className="aspect-square rounded-xl flex items-center justify-center bg-[#374151] p-1.5">
                 <div className="relative w-full h-full max-w-[85%] max-h-[85%]">
                   <div className="absolute inset-0 rounded-full border-[3px] border-red-500 opacity-90" />
-                  <div className="absolute inset-[15%] rounded-full border-[3px] border-green-500 opacity-90" />
+                  <div className="absolute inset-[15%] rounded-full border-[3px] border-gray-400 opacity-90" />
                   <div className="absolute inset-[30%] rounded-full border-[3px] border-blue-500 opacity-90" />
                 </div>
               </div>

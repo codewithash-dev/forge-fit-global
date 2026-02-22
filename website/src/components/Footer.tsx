@@ -82,11 +82,11 @@ export default function Footer() {
             <div className="rounded-lg border border-[#ea580c] bg-zinc-900/80 px-5 py-4 mb-6 w-full max-w-xs">
               <p className="text-[#f97316] font-semibold text-base mb-3">Get the ForgeFit app</p>
               <Link
-                href="#"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 border-[#ea580c] bg-transparent text-[#ea580c] font-semibold hover:bg-[#ea580c]/10 transition-colors"
+                href="/ourapp"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 border-[#ea580c] bg-transparent text-[#ea580c] font-semibold hover:bg-[#ea580c]/10 transition-colors"
               >
-                ForgeFit for Equipment
-                <span>&#62;&#62;</span>
+                <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#62;&#62;</span>
+                <span className="order-1 group-hover:order-2">ForgeFit for Equipment</span>
               </Link>
             </div>
             <h3 className="text-white font-semibold mb-3">Follow Us</h3>
