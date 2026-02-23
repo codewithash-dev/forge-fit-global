@@ -96,8 +96,8 @@ export default function ChatWidget() {
   };
 
   const openChat = () => {
-    if (USE_CRISP && typeof window !== "undefined" && (window as unknown as { $crisp?: unknown[] }).$crisp) {
-      (window as unknown as { $crisp: [unknown][] }).$crisp.push(["do", "chat:open"]);
+    if (USE_CRISP && typeof window !== "undefined" && (window as unknown as { $crisp?: unknown[][] }).$crisp) {
+      (window as unknown as { $crisp: unknown[][] }).$crisp.push(["do", "chat:open"]);
     } else {
       setExpanded(true);
     }
