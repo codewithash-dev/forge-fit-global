@@ -182,11 +182,11 @@ function GooglePlayBadge({ href = "#" }: { href?: string }) {
 
 export default function OurAppPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       <Header />
 
       {/* Hero – top block ~40–45% viewport (iFIT proportion) */}
-      <section className="px-4 sm:px-6 pt-28 pb-10 bg-[#fafafa]">
+      <section className="px-4 sm:px-6 pt-28 pb-10 bg-zinc-900">
         <div className="max-w-6xl mx-auto rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg relative min-h-[42vh] flex flex-col justify-center">
           <div className="absolute inset-0">
             <img
@@ -215,21 +215,21 @@ export default function OurAppPage() {
       </section>
 
       {/* Video section – same width and height as hero above (no stretch) */}
-      <section className="px-4 sm:px-6 py-6 bg-[#fafafa]">
+      <section className="px-4 sm:px-6 py-6 bg-zinc-900">
         <div className="max-w-6xl mx-auto rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl relative flex flex-col h-[42vh] min-h-[240px]">
           <OurappHeroVideo />
         </div>
       </section>
 
       {/* Immersive workouts – iFIT: TWO COLUMNS. Left: subtitle + headline + grid. Right: paragraph + 10k+ + paragraph + app buttons. */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-[#f3f4f6]">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-zinc-900">
         <div className="ourapp-immersive-cols px-0">
           {/* LEFT COLUMN */}
           <div className="mb-8 md:mb-0">
-            <p className="text-black text-sm sm:text-base mb-2">
+            <p className="text-zinc-400 text-sm sm:text-base mb-2">
               Get lost in breathtaking destinations
             </p>
-            <h2 className="text-black text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-6 lg:mb-8">
+            <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-6 lg:mb-8">
               Immersive workouts for your treadmill, bike, rower, elliptical, reformer, & more
             </h2>
             <div className="rounded-2xl lg:rounded-3xl overflow-hidden shadow-sm w-full">
@@ -242,13 +242,13 @@ export default function OurAppPage() {
           </div>
           {/* RIGHT COLUMN */}
           <div className="flex flex-col md:pt-0">
-            <p className="text-black text-base leading-relaxed mb-6">
+            <p className="text-zinc-300 text-base leading-relaxed mb-6">
               ForgeFit workouts are filmed in stunning outdoor locations across the world, led by expert ForgeFit Trainers. Drop into stunning outdoor locations filmed across all 7 continents, from the canyons of Arizona and the arctic tundra to the salt flats of Bolivia.
             </p>
-            <h3 className="text-black text-xl font-bold mb-3">
+            <h3 className="text-white text-xl font-bold mb-3">
               10,000+ Workouts
             </h3>
-            <p className="text-black text-base leading-relaxed mb-8">
+            <p className="text-zinc-300 text-base leading-relaxed mb-8">
               Explore high-intensity cardio, full-body strength, yoga, Pilates, marathon training, and more. There’s always something new, so you’ll never get bored.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -259,15 +259,15 @@ export default function OurAppPage() {
         </div>
       </section>
 
-      {/* Real-Time Responsive – two columns like iFIT: left = heading + paragraph + app buttons, right = bike image */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-[#f3f4f6]">
+      {/* Real-Time Responsive */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-zinc-900">
         <div className="ourapp-immersive-cols px-0">
           {/* LEFT COLUMN: heading, paragraph, app badges */}
           <div className="mb-8 md:mb-0 flex flex-col justify-center">
-            <h2 className="text-black text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
+            <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
               Real-Time Responsive
             </h2>
-            <p className="text-black text-base leading-relaxed mb-8">
+            <p className="text-zinc-300 text-base leading-relaxed mb-8">
               ForgeFit automatically adjusts your machine’s incline, resistance, and speed based on the terrain and your trainer, fully immersing you in the experience.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -275,8 +275,8 @@ export default function OurAppPage() {
               <GooglePlayBadge href="#" />
             </div>
           </div>
-          {/* RIGHT COLUMN: image – show full image so 20% SMARTADJUST overlay is visible */}
-          <div className="rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg w-full aspect-[3/4] relative bg-[#f3f4f6] min-h-0">
+          {/* RIGHT COLUMN: image */}
+          <div className="rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg w-full aspect-[3/4] relative bg-zinc-800 min-h-0">
             <img
               src="/images/real-time-bike.png"
               alt="Person using equipment with ForgeFit – automatic incline, resistance, and speed"
@@ -286,11 +286,11 @@ export default function OurAppPage() {
         </div>
       </section>
 
-      {/* Track It All – two columns like iFIT: left = treadmill/connected apps image, right = heading + paragraph + app buttons */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-[#f3f4f6]">
+      {/* Track It All */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-zinc-900">
         <div className="ourapp-immersive-cols px-0">
-          {/* LEFT COLUMN: image – show full image so Connected apps overlay is visible */}
-          <div className="mb-8 md:mb-0 rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg w-full aspect-[3/4] relative bg-[#f3f4f6] min-h-0">
+          {/* LEFT COLUMN: image */}
+          <div className="mb-8 md:mb-0 rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg w-full aspect-[3/4] relative bg-zinc-800 min-h-0">
             <img
               src="/images/track-it-all.png"
               alt="Track your progress and connect supported apps – Apple Health, Garmin Connect, Strava"
@@ -299,10 +299,10 @@ export default function OurAppPage() {
           </div>
           {/* RIGHT COLUMN: heading, paragraph, app badges */}
           <div className="flex flex-col justify-center">
-            <h2 className="text-black text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
+            <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
               Track It All
             </h2>
-            <p className="text-black text-base leading-relaxed mb-8">
+            <p className="text-zinc-300 text-base leading-relaxed mb-8">
               Watch your progress grow, celebrate streaks and milestones, and stay accountable to your goals. Easily pair supported apps and track your exercise and health stats in one place.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -314,36 +314,36 @@ export default function OurAppPage() {
       </section>
 
       {/* Second video section – same video, play-only button */}
-      <section className="px-4 sm:px-6 py-6 bg-[#fafafa]">
+      <section className="px-4 sm:px-6 py-6 bg-zinc-900">
         <div className="max-w-6xl mx-auto rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl relative flex flex-col h-[42vh] min-h-[240px]">
           <OurappHeroVideo />
         </div>
       </section>
 
-      {/* How ForgeFit Works (two cols) + 180+ Elite Trainers carousel */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-10 bg-[#f3f4f6]">
+      {/* How ForgeFit Works + 180+ Elite Trainers carousel */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-10 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
-          {/* Top: How ForgeFit Works – left = label + heading, right = paragraph */}
+          {/* Top: How ForgeFit Works */}
           <div className="ourapp-immersive-cols px-0 mb-14 sm:mb-16">
             <div>
-              <p className="text-[#374151] text-sm mb-2">ForgeFit for Equipment</p>
-              <h2 className="text-black text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+              <p className="text-zinc-400 text-sm mb-2">ForgeFit for Equipment</p>
+              <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
                 How ForgeFit Works
               </h2>
             </div>
             <div className="flex flex-col justify-center">
-              <p className="text-black text-base leading-relaxed">
+              <p className="text-zinc-300 text-base leading-relaxed">
                 Providing a unique, two-way user experience that keeps our growing community engaged is the motivation behind ForgeFit. Our platform connects our content to your hardware and makes it one interactive experience. The result is an interactive workout experience built for your goals.
               </p>
             </div>
           </div>
           {/* 180+ Elite Trainers – heading (thin “180+”, bold “Elite Trainers”), subtext */}
           <div className="text-center mb-8">
-            <h3 className="text-black text-2xl sm:text-3xl lg:text-4xl tracking-tight">
+            <h3 className="text-white text-2xl sm:text-3xl lg:text-4xl tracking-tight">
               <span className="font-extralight">180+ </span>
               <span className="font-bold">Elite Trainers</span>
             </h3>
-            <p className="text-black text-base font-normal text-[#374151] mt-3 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-zinc-400 text-base font-normal mt-3 max-w-2xl mx-auto leading-relaxed">
               Stay motivated and unlock your best performance with ForgeFit’s elite trainers, pro athletes, and world champions who lead you through every workout.
             </p>
           </div>
@@ -352,7 +352,7 @@ export default function OurAppPage() {
               {[...ELITE_TRAINERS, ...ELITE_TRAINERS].map((trainer, i) => (
                 <div
                   key={`${trainer.name}-${i}`}
-                  className="w-[200px] sm:w-[240px] rounded-2xl lg:rounded-3xl overflow-hidden shadow-md bg-gray-200 aspect-[3/4] relative"
+                  className="w-[200px] sm:w-[240px] rounded-2xl lg:rounded-3xl overflow-hidden shadow-md bg-zinc-700 aspect-[3/4] relative"
                 >
                   <img
                     src={trainer.image}
@@ -371,9 +371,9 @@ export default function OurAppPage() {
       </section>
 
       {/* Membership options */}
-      <section id="membership" className="py-20 px-6 bg-white">
+      <section id="membership" className="py-20 px-6 bg-black">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2d2d2d] mb-2 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 text-center">
             Membership options
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -383,7 +383,7 @@ export default function OurAppPage() {
                 className={`rounded-2xl lg:rounded-3xl overflow-hidden flex flex-col shadow-lg ${
                   m.featured
                     ? "bg-[#1f2937] text-white border-2 border-[#ea580c]"
-                    : "bg-[#ebe6df] text-[#2d2d2d]"
+                    : "bg-zinc-800 text-white border border-zinc-700"
                 }`}
               >
                 <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] flex-shrink-0 overflow-hidden">
@@ -417,7 +417,7 @@ export default function OurAppPage() {
                       : "bg-[#1f2937] text-white hover:bg-[#374151]"
                   }`}
                 >
-                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#62;&#62;</span>
+                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
                   <span className="order-1 group-hover:order-2">{m.cta}</span>
                 </Link>
                 </div>
@@ -427,41 +427,41 @@ export default function OurAppPage() {
         </div>
       </section>
 
-      {/* How it works – Compatible Equipment (three columns, iFIT-style) */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-10 bg-[#f3f4f6]">
+      {/* How it works – Compatible Equipment */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-10 bg-zinc-900">
         <div className="max-w-6xl mx-auto">
-          <p className="text-center text-[#6b7280] text-sm mb-2">
+          <p className="text-center text-zinc-400 text-sm mb-2">
             How it works
           </p>
           <h2 className="text-center mb-12">
-            <span className="block text-black text-3xl md:text-4xl font-bold">
+            <span className="block text-white text-3xl md:text-4xl font-bold">
               Compatible
             </span>
-            <span className="block text-black text-2xl md:text-3xl font-semibold text-[#374151]">
+            <span className="block text-zinc-300 text-2xl md:text-3xl font-semibold">
               Equipment
             </span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {EQUIPMENT_BRANDS.map((brand) => (
               <div key={brand.name} className="flex flex-col">
-                <div className="rounded-t-2xl lg:rounded-t-3xl overflow-hidden aspect-[4/3] bg-gray-200 flex-shrink-0">
+                <div className="rounded-t-2xl lg:rounded-t-3xl overflow-hidden aspect-[4/3] bg-zinc-800 flex-shrink-0">
                   <img
                     src={brand.image}
                     alt=""
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <h3 className="text-[#111827] text-xl font-bold mt-6 mb-3">
+                <h3 className="text-white text-xl font-bold mt-6 mb-3">
                   {brand.name}
                 </h3>
-                <p className="text-[#6b7280] text-sm font-normal leading-relaxed mb-6 flex-1">
+                <p className="text-zinc-400 text-sm font-normal leading-relaxed mb-6 flex-1">
                   {brand.description}
                 </p>
                 <Link
                   href={brand.href}
-                  className="group inline-flex items-center justify-center gap-1 rounded-full border border-[#d1d5db] bg-white px-4 py-1.5 text-sm text-[#111827] font-bold hover:border-[#ea580c] hover:bg-[#ea580c] hover:text-white transition-colors w-fit"
+                  className="group inline-flex items-center justify-center gap-1 rounded-full border border-zinc-600 bg-zinc-800 px-4 py-1.5 text-sm text-white font-bold hover:border-[#ea580c] hover:bg-[#ea580c] hover:text-white transition-colors w-fit"
                 >
-                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#62;&#62;</span>
+                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
                   <span className="order-1 group-hover:order-2">{brand.name}</span>
                 </Link>
               </div>
@@ -472,15 +472,15 @@ export default function OurAppPage() {
 
       <StoriesCarousel stories={STORIES} />
 
-      {/* Stats strip – two cards; "1 Million" and "58000+" on same row so they align */}
-      <section className="px-4 sm:px-6 lg:px-10 pt-4 pb-3 sm:pt-5 sm:pb-4 bg-[#f3f4f6]">
+      {/* Stats strip */}
+      <section className="px-4 sm:px-6 lg:px-10 pt-4 pb-3 sm:pt-5 sm:pb-4 bg-zinc-900">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-2xl lg:rounded-3xl bg-[#5c6370] px-8 py-8 sm:px-10 sm:py-10 min-h-[140px] sm:min-h-[160px] grid grid-rows-[auto_auto_auto] items-center justify-items-center text-center gap-0">
+          <div className="rounded-2xl lg:rounded-3xl bg-zinc-700 px-8 py-8 sm:px-10 sm:py-10 min-h-[140px] sm:min-h-[160px] grid grid-rows-[auto_auto_auto] items-center justify-items-center text-center gap-0">
             <div className="h-8 sm:h-9 w-full flex items-center justify-center" aria-hidden />
             <p className="text-3xl sm:text-4xl font-bold leading-none"><span className="text-white">1</span> <span className="text-[#ea580c]">Million</span></p>
             <p className="text-white/90 text-sm sm:text-base font-light mt-2">downloads on Android Play Store</p>
           </div>
-          <div className="rounded-2xl lg:rounded-3xl bg-[#5c6370] px-8 py-8 sm:px-10 sm:py-10 min-h-[140px] sm:min-h-[160px] grid grid-rows-[auto_auto_auto] items-center justify-items-center text-center gap-0">
+          <div className="rounded-2xl lg:rounded-3xl bg-zinc-700 px-8 py-8 sm:px-10 sm:py-10 min-h-[140px] sm:min-h-[160px] grid grid-rows-[auto_auto_auto] items-center justify-items-center text-center gap-0">
             <div className="flex text-[#ea580c] h-8 sm:h-9 items-center justify-center" aria-hidden>
               {[1, 2, 3, 4, 5].map((i) => (
                 <svg key={i} className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
@@ -492,12 +492,12 @@ export default function OurAppPage() {
         </div>
       </section>
 
-      {/* Give your workouts the ultimate upgrade – bottom; gap above matches reference (~30–40px from stats) */}
-      <section className="pt-6 pb-16 sm:pt-8 sm:pb-20 px-4 sm:px-6 lg:px-10 bg-[#f3f4f6]">
+      {/* Give your workouts the ultimate upgrade */}
+      <section className="pt-6 pb-16 sm:pt-8 sm:pb-20 px-4 sm:px-6 lg:px-10 bg-zinc-900">
         <div className="max-w-6xl mx-auto">
           {/* Two cards with aligned spacing: same height, uniform gap (like iFIT) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-stretch">
-            <div className="rounded-2xl lg:rounded-3xl overflow-hidden bg-[#5c6370] p-8 sm:p-10 lg:p-12 flex flex-col justify-center text-center shadow-lg min-h-0">
+            <div className="rounded-2xl lg:rounded-3xl overflow-hidden bg-zinc-700 p-8 sm:p-10 lg:p-12 flex flex-col justify-center text-center shadow-lg min-h-0">
               <p className="text-[#ea580c] text-sm font-normal mb-3">Get the ForgeFit for Equipment App</p>
               <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
                 Give your workouts the ultimate upgrade
@@ -520,7 +520,7 @@ export default function OurAppPage() {
           </div>
           {/* Disclaimer points 1-4 – left-aligned with hanging indent like iFIT */}
           <div className="mt-10 sm:mt-12 flex flex-col items-center">
-            <ol className="space-y-2.5 text-[#6b7280] text-[11px] sm:text-xs leading-relaxed max-w-3xl list-decimal list-outside pl-6 sm:pl-7 text-left [&>li]:pl-1 [&>li]:text-left">
+            <ol className="space-y-2.5 text-zinc-500 text-[11px] sm:text-xs leading-relaxed max-w-3xl list-decimal list-outside pl-6 sm:pl-7 text-left [&>li]:pl-1 [&>li]:text-left">
               <li>Paid ForgeFit membership required with equipment purchase and to access content and features. Membership auto-renews unless cancelled in advance. Free ForgeFit account, agreement to terms, and wi-fi required to operate equipment.</li>
               <li>ForgeFit subscription and compatible heart rate monitor required (sold separately). Available with treadmills only.</li>
               <li>Coach features provided via in-app (see here for regional availability). Message and data rates may apply where applicable.</li>

@@ -43,7 +43,7 @@ export default function OurappHeroVideo() {
           className="group inline-flex items-center gap-2 rounded-full bg-[#d1d5db] px-6 py-3 sm:px-8 sm:py-4 text-[#374151] font-bold text-lg sm:text-xl hover:bg-[#e5e7eb] transition-colors shadow-lg"
           aria-label={playing ? "Pause video" : "Play video"}
         >
-          <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#62;&#62;</span>
+          <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
           <span className="order-1 group-hover:order-2">{playing ? "Pause" : "Play"}</span>
         </button>
       </div>

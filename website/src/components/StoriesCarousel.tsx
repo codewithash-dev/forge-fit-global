@@ -24,9 +24,9 @@ export default function StoriesCarousel({ stories }: { stories: StoryItem[] }) {
   const goNext = () => setCurrentPage((p) => (p >= totalPages - 1 ? 0 : p + 1));
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-[#f3f4f6]">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-zinc-900">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-center text-3xl md:text-4xl text-black mb-12">
+        <h2 className="text-center text-3xl md:text-4xl text-white mb-12">
           <span className="font-bold uppercase">ForgeFit</span>
           <span className="font-normal"> Stories</span>
         </h2>
@@ -35,9 +35,9 @@ export default function StoriesCarousel({ stories }: { stories: StoryItem[] }) {
           {visible.map((story) => (
             <div
               key={story.name + story.location}
-              className="rounded-2xl lg:rounded-3xl bg-white shadow-lg overflow-hidden flex flex-col"
+              className="rounded-2xl lg:rounded-3xl bg-zinc-800 border border-zinc-700 shadow-lg overflow-hidden flex flex-col"
             >
-              <div className="relative aspect-[9/16] bg-gray-200 flex-shrink-0">
+              <div className="relative aspect-[9/16] bg-zinc-700 flex-shrink-0">
                 <img
                   src={story.thumbnail}
                   alt=""
@@ -66,8 +66,8 @@ export default function StoriesCarousel({ stories }: { stories: StoryItem[] }) {
                   </svg>
                 </Link>
               </div>
-              <div className="p-5 flex-1 border-t border-gray-100 bg-white">
-                <p className="text-[#111827] text-sm leading-relaxed">&ldquo;{story.quote}&rdquo;</p>
+              <div className="p-5 flex-1 border-t border-zinc-700 bg-zinc-800">
+                <p className="text-zinc-300 text-sm leading-relaxed">&ldquo;{story.quote}&rdquo;</p>
               </div>
             </div>
           ))}

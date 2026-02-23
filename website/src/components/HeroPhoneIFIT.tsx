@@ -117,7 +117,7 @@ export default function HeroPhoneIFIT() {
                 <div className="h-1 flex-shrink-0 w-full bg-black/40 overflow-hidden">
                   <div
                     className="h-full rounded-r"
-                    style={{ width: "65%", background: "linear-gradient(90deg, #3b82f6 0%, #ea580c 100%)" }}
+                    style={{ width: "65%", background: "linear-gradient(90deg, #ffffff 0%, #ea580c 100%)" }}
                   />
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function HeroPhoneIFIT() {
                   <div className="mt-1.5 h-1.5 w-full bg-black/30 rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full"
-                      style={{ width: "40%", background: "linear-gradient(90deg, #3b82f6 0%, #ea580c 100%)" }}
+                      style={{ width: "40%", background: "linear-gradient(90deg, #c2410c 0%, #ea580c 100%)" }}
                     />
                   </div>
                 </div>
