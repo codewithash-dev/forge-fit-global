@@ -40,5 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large media (host elsewhere or use compressed version)
+# large media (host elsewhere or use compressed version); hero video is allowed
 /public/videos/*.mp4
+!/public/videos/FFG-video.mp4
