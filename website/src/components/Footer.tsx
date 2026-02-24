@@ -85,7 +85,7 @@ export default function Footer() {
                 href="/ourapp"
                 className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 border-[#ea580c] bg-transparent text-[#ea580c] font-semibold hover:bg-[#ea580c]/10 transition-colors"
               >
-                <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
+                <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;&#xFE0E;</span>
                 <span className="order-1 group-hover:order-2">ForgeFit for Equipment</span>
               </Link>
             </div>

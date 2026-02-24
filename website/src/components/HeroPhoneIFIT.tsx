@@ -1,5 +1,10 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+
 /**
  * Hero phone mockup – matches iFIT design; no blur so video shows through crystal clear.
+ * Scroll the feed with mouse wheel over the phone.
  */
 function TreadmillIcon({ className }: { className?: string }) {
   return (
@@ -65,17 +70,51 @@ const categories = [
 
 export default function HeroPhoneIFIT() {
   const selectedIndex = 1; // Strength selected (orange)
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const phoneRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const phone = phoneRef.current;
+    const scrollEl = scrollRef.current;
+    if (!phone || !scrollEl) return;
+    const onWheel = (e: WheelEvent) => {
+      if (!scrollRef.current) return;
+      const el = scrollRef.current;
+      const { scrollTop, scrollHeight, clientHeight } = el;
+      const maxScroll = scrollHeight - clientHeight;
+      if (maxScroll <= 0) return;
+      const next = scrollTop + e.deltaY;
+      el.scrollTop = Math.max(0, Math.min(maxScroll, next));
+      e.preventDefault();
+      e.stopPropagation();
+    };
+    phone.addEventListener("wheel", onWheel, { passive: false, capture: true });
+    return () => phone.removeEventListener("wheel", onWheel, true);
+  }, []);
 
   return (
-    <div className="flex justify-center lg:justify-end">
-      <div className="w-[320px] flex-shrink-0">
-        {/* Phone: light grey outline a bit thicker; darker area goes right up to border */}
-        <div className="rounded-[3rem] p-0 border-[2.5px] border-white/50 bg-transparent">
-          <div className="m-[2.5px] rounded-[calc(3rem-2.5px)] overflow-hidden bg-black/20 min-h-[640px] flex flex-col">
+    <div className="flex justify-center lg:justify-end w-full max-w-[320px] mx-auto lg:mx-0">
+      <div ref={phoneRef} className="relative w-[260px] sm:w-[300px] lg:w-[320px] flex-shrink-0">
+        {/* Phone: frame with integrated side buttons – iPhone 16 style (reference) */}
+        <div className="relative rounded-[2.5rem] sm:rounded-[3rem] p-0 border-[2.5px] border-white/50 bg-transparent">
+          {/* Left: (3) Action/mute – small horizontal switch; (2) Volume – two stacked ovals */}
+          <div className="absolute -left-[3px] top-[18%] flex flex-col gap-2.5 z-10 items-start" aria-hidden>
+            <div className="h-[6px] w-3 rounded-sm bg-white/50 flex-shrink-0" title="Action" />
+            <div className="flex flex-col gap-1">
+              <div className="h-6 sm:h-7 w-[4px] rounded-full bg-white/50 flex-shrink-0" />
+              <div className="h-6 sm:h-7 w-[4px] rounded-full bg-white/50 flex-shrink-0" />
+            </div>
+          </div>
+          {/* Right: (1) Side/power – top; (4) Camera control – lower */}
+          <div className="absolute -right-[3px] top-[22%] flex flex-col gap-6 z-10 items-end" aria-hidden>
+            <div className="h-8 sm:h-10 w-[4px] rounded-full bg-white/50 flex-shrink-0" />
+            <div className="h-6 sm:h-8 w-[4px] rounded-full bg-white/50 flex-shrink-0" />
+          </div>
+          <div className="m-[2.5px] rounded-[calc(2.5rem-2.5px)] sm:rounded-[calc(3rem-2.5px)] overflow-hidden bg-black/20 min-h-[520px] sm:min-h-[600px] lg:min-h-[640px] flex flex-col">
             {/* Top bar – same px as category row so Max aligns with icons */}
             <div className="px-5 pt-5 pb-1.5 flex items-center gap-3 bg-black/20">
               <span className="text-white text-lg">☰</span>
-              <span className="text-white font-semibold">Hi, Max</span>
+              <span className="text-white font-semibold">Hi, Davis</span>
             </div>
             {/* Category row – tight spacing, no glow */}
             <div className="px-5 pb-2 flex gap-1 overflow-x-auto">
@@ -94,14 +133,21 @@ export default function HeroPhoneIFIT() {
                 );
               })}
             </div>
-            {/* Long + short block: tiny gap between sections so they don't touch */}
-            <div className="flex-1 flex flex-col min-h-0 px-5 pb-5 gap-1.5">
-              {/* Long block – video card grows to fill space */}
-              <div className="flex-1 min-h-0 flex flex-col rounded-2xl overflow-hidden bg-black/30">
-                <div className="flex-1 min-h-[120px] relative overflow-hidden">
+            {/* Scrollable feed – use mouse wheel over phone to scroll */}
+            <div
+              ref={scrollRef}
+              role="region"
+              aria-label="App content"
+              className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-5 pb-5 gap-1.5 flex flex-col overscroll-contain scroll-smooth"
+              style={{ WebkitOverflowScrolling: "touch", minHeight: 0 }}
+            >
+              <div className="flex flex-col gap-1.5 min-h-[440px]">
+              {/* Episode card */}
+              <div className="flex-shrink-0 flex flex-col rounded-2xl overflow-hidden bg-black/30">
+                <div className="min-h-[120px] relative overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80"
-                    alt=""
+                    src="/images/hero-phone-workout.png"
+                    alt="Trainer Games workout"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/50" />
@@ -121,7 +167,7 @@ export default function HeroPhoneIFIT() {
                   />
                 </div>
               </div>
-              {/* Short block – goal card, tiny gap above */}
+              {/* Goal card */}
               <div
                 className="flex-shrink-0 rounded-2xl p-3 flex flex-col justify-between min-h-[100px]"
                 style={{
@@ -142,6 +188,28 @@ export default function HeroPhoneIFIT() {
                     />
                   </div>
                 </div>
+              </div>
+              {/* Extra card so there is content to scroll */}
+              <div className="flex-shrink-0 rounded-2xl overflow-hidden bg-black/30 min-h-[80px] p-3">
+                <p className="text-[10px] text-white/80">Up next</p>
+                <p className="text-sm font-bold text-white">Episode 102</p>
+                <p className="text-[10px] text-white/70 mt-0.5">New episode available</p>
+              </div>
+              <div className="flex-shrink-0 rounded-2xl overflow-hidden bg-black/30 min-h-[80px] p-3">
+                <p className="text-[10px] text-white/80">Recommended</p>
+                <p className="text-sm font-bold text-white">Full Body Strength</p>
+                <p className="text-[10px] text-white/70 mt-0.5">30 min · Strength</p>
+              </div>
+              <div className="flex-shrink-0 rounded-2xl overflow-hidden bg-black/30 min-h-[80px] p-3">
+                <p className="text-[10px] text-white/80">Yoga Flow</p>
+                <p className="text-sm font-bold text-white">Morning Stretch</p>
+                <p className="text-[10px] text-white/70 mt-0.5">15 min · Yoga</p>
+              </div>
+              <div className="flex-shrink-0 rounded-2xl overflow-hidden bg-black/30 min-h-[72px] p-3">
+                <p className="text-[10px] text-white/80">Quick burn</p>
+                <p className="text-sm font-bold text-white">20 Min HIIT</p>
+                <p className="text-[10px] text-white/70 mt-0.5">High intensity</p>
+              </div>
               </div>
             </div>
           </div>

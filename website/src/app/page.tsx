@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HeroPhoneIFIT from "@/components/HeroPhoneIFIT";
 import FeedbackWidget from "@/components/FeedbackWidget";
+import HeroPhoneIFIT from "@/components/HeroPhoneIFIT";
+import LoopingVideo from "@/components/LoopingVideo";
+import ScrollAnimations from "@/components/ScrollAnimations";
 
-// Video: set NEXT_PUBLIC_HERO_VIDEO_URL in Vercel to a hosted URL; locally uses /videos/to-run.mp4
-const HERO_VIDEO_SRC = process.env.NEXT_PUBLIC_HERO_VIDEO_URL || "/videos/to-run.mp4";
+// Video: set NEXT_PUBLIC_HERO_VIDEO_URL in Vercel to a hosted URL; locally uses /videos/FFG-video.mp4
+const HERO_VIDEO_SRC = process.env.NEXT_PUBLIC_HERO_VIDEO_URL || "/videos/FFG-video.mp4";
 
 const REVIEWS = [
   { quote: "I have been using ForgeFit for 4 years now. To say ForgeFit changed my life is an understatement.", author: "PS" },
@@ -24,62 +26,56 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <Header />
 
-      {/* 1. HERO – video background (to-run.mp4), left copy, right = white iPhone with app mockup */}
-      <section className="relative min-h-[92vh] flex items-center px-6 pt-24 pb-16 overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+      {/* 1. HERO – video background, left copy + buttons, right = phone app image (no scroll animate so video stays visible and plays) */}
+      <section
+        className="relative min-h-[92vh] flex items-center px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-x-hidden overflow-y-visible"
+      >
+        <LoopingVideo
+          src={HERO_VIDEO_SRC}
           className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden
-        >
-          <source src={HERO_VIDEO_SRC} type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-black/25" />
-        <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Now Streaming + headline + two buttons */}
-          <div>
-            <p className="text-white text-sm font-medium uppercase tracking-[0.2em] mb-3">Now Streaming</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-8">
+        <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+          <div className="min-w-0">
+            <p className="text-white text-xs sm:text-sm font-medium uppercase tracking-[0.2em] mb-3">Now Streaming</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.15] mb-6 sm:mb-8">
               Let the <strong className="text-white">Trainer</strong>
               <br />
               <strong className="text-white">Games</strong> begin.
             </h1>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <Link
                 href="#programs"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors"
+                className="group inline-flex items-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 rounded-full bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors text-sm sm:text-base"
               >
                 <span className="order-1 group-hover:order-2">Learn more</span>
-                <span className="order-2 group-hover:order-1 text-sm" aria-hidden>&#9874;</span>
+                <span className="order-2 group-hover:order-1 text-sm" aria-hidden>&#9874;&#xFE0E;</span>
               </Link>
               <Link
                 href="https://youtube.com/@ForgeFitGlobal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white bg-transparent text-white font-semibold hover:bg-white hover:text-[#ea580c] transition-colors"
+                className="group inline-flex items-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 rounded-full border-2 border-white bg-transparent text-white font-semibold hover:bg-white hover:text-[#ea580c] transition-colors text-sm sm:text-base"
               >
                 <span className="order-1 group-hover:order-2">Watch now</span>
-                <span className="order-2 group-hover:order-1 text-sm" aria-hidden>&#9874;</span>
+                <span className="order-2 group-hover:order-1 text-sm" aria-hidden>&#9874;&#xFE0E;</span>
               </Link>
             </div>
           </div>
-          {/* Right: White iPhone with app mockup (iFIT-style: Hi Max, Trainer Games, Goal card) */}
           <HeroPhoneIFIT />
         </div>
       </section>
 
       {/* 2. Trusted strip */}
-      <section className="py-10 px-6 bg-zinc-900">
+      <section className="py-8 sm:py-10 px-4 sm:px-6 bg-zinc-900" data-animate="section">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">Trusted by Millions</h2>
-          <p className="text-lg text-zinc-400">ForgeFit Global: Leading in Personal Fitness</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">Trusted by Millions</h2>
+          <p className="text-base sm:text-lg text-zinc-400">ForgeFit Global: Leading in Personal Fitness</p>
         </div>
       </section>
 
       {/* 3. Three columns */}
-      <section className="py-16 px-6 bg-zinc-900">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-zinc-900" data-animate="section">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Personal Training – white iPhone mockup; heading above phone */}
           <div id="programs" className="rounded-2xl bg-zinc-800 p-6 lg:p-8 flex flex-col shadow-md border border-zinc-700">
@@ -90,7 +86,7 @@ export default function Home() {
                   <div className="px-4 pt-4 pb-4 min-h-[400px] flex flex-col" style={{ backgroundColor: "#1C1D2A" }}>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-white/90 text-sm">&#9776;</span>
-                      <span className="text-white text-sm font-semibold">Hi, Max</span>
+                      <span className="text-white text-sm font-semibold">Hi, Davis</span>
                     </div>
                     <div className="flex gap-1.5 mb-3 overflow-x-auto">
                       {[
@@ -179,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* 4. STATS – 4 cards with orange accent numbers */}
-      <section className="py-12 px-6 bg-black">
+      <section className="py-10 sm:py-12 px-4 sm:px-6 bg-black" data-animate="section">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="rounded-2xl bg-zinc-900 p-6 text-center border border-zinc-700">
             <p className="text-2xl md:text-3xl font-bold text-[#ea580c]">6.4+</p>
@@ -209,44 +205,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4b. Full-width video – “TO RUN” overlay + Why ForgeFit? >> (video placeholder until you provide asset) */}
-      <section className="py-6 px-4 md:px-6 bg-zinc-900">
+      {/* 4b. Full-width video – loops */}
+      <section className="py-6 px-4 md:px-6 bg-zinc-900" data-animate="section">
         <div className="max-w-[90vw] w-full mx-auto rounded-2xl overflow-hidden shadow-xl aspect-video max-h-[85vh] bg-black relative">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <LoopingVideo
+            src={HERO_VIDEO_SRC}
             className="absolute inset-0 w-full h-full object-cover"
-            aria-hidden
             poster="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80"
-          >
-            <source src={HERO_VIDEO_SRC} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black/25" />
-          <div className="absolute inset-0 flex items-end pb-[12%] pl-[8%] md:pl-[10%]">
-            <div className="flex flex-col gap-3 md:gap-4">
-              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight drop-shadow-lg">
-                ForgeFit
-                <span className="text-white ml-0.5">&gt;</span>
-              </p>
-              <Link
-                href="#why"
-                className="group inline-flex items-center gap-2 w-fit px-5 py-2.5 rounded-full bg-[#ea580c] text-white text-sm font-semibold hover:bg-[#f97316] transition-colors shadow-lg"
-              >
-                <span className="order-2 group-hover:order-1 inline-block font-bold transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
-                <span className="order-1 group-hover:order-2">Why ForgeFit?</span>
-              </Link>
-              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight drop-shadow-lg">
-                INVITES YOU
-              </p>
-            </div>
-          </div>
+          />
         </div>
       </section>
 
       {/* 5. Why ForgeFit – left = image grid; right = large text */}
-      <section id="why" className="py-16 md:py-20 px-6 bg-zinc-900 border-y border-zinc-700">
+      <section
+        id="why"
+        className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-zinc-900 border-y border-zinc-700"
+        data-animate="section"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[0.58fr_0.42fr] gap-10 lg:gap-12 items-start">
             <div className="grid grid-cols-4 gap-2 w-full auto-rows-fr">
@@ -306,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* 6. Progressive programs band + two-card membership */}
-      <section id="membership" className="bg-zinc-900">
+      <section id="membership" className="bg-zinc-900" data-animate="section">
         {/* Top band: Progressive programs */}
         <div className="bg-zinc-800 px-6 py-6 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-b border-zinc-700">
           <div>
@@ -337,10 +312,10 @@ export default function Home() {
             </h2>
             <p className="text-xl text-zinc-400 mb-8">that&apos;s right for you</p>
             <Link
-              href="#"
+              href="/membership"
               className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors"
             >
-              <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
+              <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;&#xFE0E;</span>
               <span className="order-1 group-hover:order-2">Explore Memberships</span>
             </Link>
           </div>
@@ -364,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* 7. Watch the Trailer */}
-      <section className="py-20 px-6 bg-black">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-black" data-animate="section">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-2">Watch the Trailer</h2>
           <p className="text-zinc-400 text-sm mb-2">The search for the next global fitness star</p>
@@ -378,14 +353,14 @@ export default function Home() {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#ea580c] text-white font-semibold hover:bg-[#f97316] transition-colors"
           >
-            <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
+            <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;&#xFE0E;</span>
             <span className="order-1 group-hover:order-2">Watch now on Prime Video</span>
           </a>
         </div>
       </section>
 
       {/* 8. Reviews */}
-      <section className="py-20 px-6 bg-black">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 bg-black" data-animate="section">
         <div className="max-w-6xl mx-auto text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">ForgeFit Reviews</h2>
           <p className="text-zinc-400 text-lg mb-6">Real people. Real progress. Real results.</p>
@@ -393,7 +368,7 @@ export default function Home() {
             href="#"
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-white bg-transparent text-white font-medium hover:bg-white/10 transition-colors"
           >
-            <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
+            <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;&#xFE0E;</span>
             <span className="order-1 group-hover:order-2">See what people are saying</span>
           </Link>
         </div>
@@ -415,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* 9. Science */}
-      <section className="py-8 md:py-12 px-6 bg-zinc-900">
+      <section className="py-8 md:py-12 px-4 sm:px-6 bg-zinc-900" data-animate="section">
         <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,32rem)_1fr_1fr] gap-8 md:gap-8 w-full md:items-center">
           {/* Left: Science Council intro + 3x3 grid (iFIT: training, Sleep card, sleeping; fence, fruit bowl, activity rings; empty, Heart, empty) */}
           <div className="order-1 w-full max-w-2xl min-w-0">
@@ -502,9 +477,8 @@ export default function Home() {
       </section>
 
       <Footer />
-
       <FeedbackWidget />
-
+      <ScrollAnimations />
     </div>
   );
 }

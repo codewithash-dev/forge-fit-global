@@ -94,7 +94,7 @@ export default function SignUpModal({ isOpen, onClose }: Props) {
                   className="group mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#ea580c] px-4 py-3 font-semibold text-white hover:bg-[#f97316] transition-colors"
                 >
                   <span className="order-1 group-hover:order-2 transition-all duration-200">{m.cta}</span>
-                  <span className="order-2 group-hover:order-1" aria-hidden>&#9874;</span>
+                  <span className="order-2 group-hover:order-1" aria-hidden>&#9874;&#xFE0E;</span>
                 </Link>
               </div>
             ))}

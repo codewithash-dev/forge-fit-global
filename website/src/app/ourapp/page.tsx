@@ -417,7 +417,7 @@ export default function OurAppPage() {
                       : "bg-[#1f2937] text-white hover:bg-[#374151]"
                   }`}
                 >
-                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
+                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;&#xFE0E;</span>
                   <span className="order-1 group-hover:order-2">{m.cta}</span>
                 </Link>
                 </div>
@@ -461,7 +461,7 @@ export default function OurAppPage() {
                   href={brand.href}
                   className="group inline-flex items-center justify-center gap-1 rounded-full border border-zinc-600 bg-zinc-800 px-4 py-1.5 text-sm text-white font-bold hover:border-[#ea580c] hover:bg-[#ea580c] hover:text-white transition-colors w-fit"
                 >
-                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;</span>
+                  <span className="order-2 group-hover:order-1 inline-block transition-all duration-200 group-hover:scale-125" aria-hidden>&#9874;&#xFE0E;</span>
                   <span className="order-1 group-hover:order-2">{brand.name}</span>
                 </Link>
               </div>

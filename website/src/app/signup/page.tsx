@@ -18,7 +18,7 @@ export default function SignupPage() {
               Forge Fit
             </span>
             <span className="text-4xl sm:text-5xl font-bold text-[#ea580c]" aria-hidden>
-              &#9874;
+              &#9874;&#xFE0E;
             </span>
           </Link>
 
