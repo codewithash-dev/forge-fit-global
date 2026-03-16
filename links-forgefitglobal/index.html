@@ -68,7 +68,6 @@
           linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.6)),
           url("background.png") center center / cover no-repeat fixed;
         min-height: 100vh;
-        will-change: background-position;
       }
 
       .page {
@@ -92,9 +91,18 @@
         position: fixed;
         inset: 0;
         pointer-events: none;
-        background: none;
-        opacity: 0;
+        background: radial-gradient(circle at bottom, rgba(0, 0, 0, 0.5), transparent 60%);
+        opacity: 0.9;
         z-index: -1;
+      }
+
+      .bg-image {
+        position: fixed;
+        inset: 0;
+        background: url("background.png") center center / cover no-repeat fixed;
+        z-index: -2;
+        opacity: 0.6;
+        will-change: opacity;
       }
 
       .header {
@@ -525,6 +533,7 @@
     </style>
   </head>
   <body>
+    <div class="bg-image" aria-hidden="true"></div>
     <div class="bg-orbit" aria-hidden="true"></div>
     <main class="page">
       <section class="card" aria-label="Forge brands link hub">
@@ -927,13 +936,14 @@
       // Set year
       document.getElementById("year").textContent = String(new Date().getFullYear());
 
-      // Background slow drift
-      gsap.to(document.body, {
-        backgroundPosition: "50% 60%",
-        duration: 26,
+      // Background heartbeat-style pulse on image only (no full fade to black)
+      const bgImage = document.querySelector(".bg-image");
+      gsap.to(bgImage, {
+        opacity: 0.9,
+        duration: 3.2,
         ease: "sine.inOut",
-        repeat: -1,
         yoyo: true,
+        repeat: -1,
       });
 
       // Stagger in the three sections
